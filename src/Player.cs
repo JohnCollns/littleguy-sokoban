@@ -22,8 +22,12 @@ public partial class Player : Moveable
                 HandleMovementInput(@event);
                 return;
             }
-
+            
             // Undo
+            if (@event.IsActionPressed("Undo"))
+            {
+                LevelSingleton.Instance.UndoPreviousTurn();
+            }
         }
     }
     
@@ -33,6 +37,7 @@ public partial class Player : Moveable
         // GD.Print($"Handling Movement in direction: {direction},\tCanMove: {CanMove(direction)}");
         if (CanMove(direction))
         {
+            LevelSingleton.Instance.StartNewTurn();
             Move(direction);
         }
     }

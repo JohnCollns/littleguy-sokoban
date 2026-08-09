@@ -57,6 +57,7 @@ public partial class Moveable : Node2D
             moveableToPush.Move(direction);
         }
         Slide(direction);
+        LevelSingleton.Instance.AddMoveToTurn(this, direction);
     }
 
     public void Slide(Vector2I Direction)

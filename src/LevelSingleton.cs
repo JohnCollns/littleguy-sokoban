@@ -1,13 +1,31 @@
 using Godot;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Godot.Collections;
 
-//[GlobalClass]
+//using Godot.Collections;
+
+public struct MoveRecord
+{
+    public Moveable Moveable;
+    public Vector2I Direction;
+
+    public MoveRecord(Moveable moveable_, Vector2I direction_)
+    {
+        Moveable = moveable_;
+        Direction = direction_;
+    }
+}
+
 public partial class LevelSingleton : Node
 {
     public static LevelSingleton Instance { get; private set; }
     private TileMapLayer TileMapLayer;
     public List<Moveable> Moveables = new List<Moveable>();
+    //private List<MoveRecord[]> MoveHistory = new List<MoveRecord[]>();
+    private List<List<MoveRecord>> MoveHistory = new List<List<MoveRecord>>();
 
     public override void _EnterTree()
     {
@@ -24,6 +42,7 @@ public partial class LevelSingleton : Node
 
     private void OnLevelChanged()
     {
+        MoveHistory.Clear();
         TileMapLayer = (TileMapLayer)GetTree().GetFirstNodeInGroup("LevelTileMap");
         GD.Print($"OnLevelChanged(), TileMapLayer found: {TileMapLayer != null}");
     }
@@ -47,5 +66,29 @@ public partial class LevelSingleton : Node
             }
         }
         return null;
+    }
+
+    public void StartNewTurn()
+    {
+        MoveHistory.Add(new List<MoveRecord>());
+    }
+
+    public void AddMoveToTurn(Moveable moveable, Vector2I direction)
+    {
+        MoveRecord moveRecord = new MoveRecord(moveable, direction);
+        MoveHistory.Last().Add(moveRecord);
+    }
+
+    public void UndoPreviousTurn()
+    {
+        if (MoveHistory.Count == 0)
+            return;
+
+        var lastMove = MoveHistory.Last();
+        MoveHistory.RemoveAt(MoveHistory.Count - 1);
+        foreach (MoveRecord moveRecord in lastMove)
+        {
+            moveRecord.Moveable.Slide(-moveRecord.Direction);
+        }
     }
 }
