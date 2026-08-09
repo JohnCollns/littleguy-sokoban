@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://b4kituakaifs6"]
 
+[ext_resource type="PackedScene" uid="uid://cddfvfa4dr4t4" path="res://content/scenes/blocks/block_base.tscn" id="1_ws2kl"]
+[ext_resource type="PackedScene" uid="uid://um20pdreobx0" path="res://content/scenes/blocks/block_crate.tscn" id="2_odoxk"]
+
 [node name="Node2D" type="Node2D" unique_id=1751878291]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=395628579]
+zoom = Vector2(5, 5)
+
+[node name="Block_Base" parent="." unique_id=470897762 instance=ExtResource("1_ws2kl")]
+
+[node name="Block_Crate" parent="." unique_id=2006618944 instance=ExtResource("2_odoxk")]
+position = Vector2(10, 0)

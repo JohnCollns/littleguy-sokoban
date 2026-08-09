@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://um20pdreobx0"]
+
+[ext_resource type="Script" uid="uid://ce15f3bwb4n5u" path="res://src/Block_Pushable.cs" id="1_lgrnv"]
+[ext_resource type="Texture2D" uid="uid://dla25p5o2byrr" path="res://content/temp_sprites/tempbox.png" id="2_3xf8h"]
+
+[node name="Block_Crate" type="Node2D" unique_id=2006618944]
+script = ExtResource("1_lgrnv")
+bCanBePushed = true
+SpriteTexture = ExtResource("2_3xf8h")
+bBlocksMovement = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1536738731]
+texture = ExtResource("2_3xf8h")

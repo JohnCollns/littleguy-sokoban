@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cddfvfa4dr4t4"]
+
+[ext_resource type="Script" uid="uid://du2bdmtgmxwu3" path="res://src/Block_Base.cs" id="1_tbib6"]
+[ext_resource type="Texture2D" uid="uid://mfqth0qhocr2" path="res://content/temp_sprites/tempwall.png" id="2_g55c6"]
+
+[node name="Block_Base" type="Node2D" unique_id=470897762]
+script = ExtResource("1_tbib6")
+SpriteTexture = ExtResource("2_g55c6")
+bBlocksMovement = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=871706396]
+scale = Vector2(0.09765625, 0.09765625)
+texture = ExtResource("2_g55c6")
