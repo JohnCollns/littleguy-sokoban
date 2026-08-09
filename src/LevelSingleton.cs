@@ -45,6 +45,9 @@ public partial class LevelSingleton : Node
         TileMapLayer = (TileMapLayer)GetTree().GetFirstNodeInGroup("LevelTileMap");
         GD.Print($"OnLevelChanged(), TileMapLayer found: {TileMapLayer != null}");
     }
+    
+    [Signal]
+    public delegate void StartTurnEventHandler();
 
     public bool IsTileWall(Vector2I pos)
     {
@@ -69,6 +72,7 @@ public partial class LevelSingleton : Node
 
     public void StartNewTurn()
     {
+        EmitSignal(SignalName.StartTurn);
         MoveHistory.Add(new List<MoveRecord>());
     }
 

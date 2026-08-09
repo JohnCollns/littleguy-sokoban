@@ -18,10 +18,14 @@ public partial class Moveable_Multiblock : Moveable
 
     public override bool CanMove(Vector2I direction)
     {
+        GD.Print($"Querying CanMove at pos: {tilePos}. ExtraCoords_Internal length: {ExtraCoords_Internal.Length}");
         bool bResult = base.CanMove(direction);
         foreach (Vector2I coord in ExtraCoords_Internal)
         {
-            bResult &= CanMoveStatic(tilePos + coord, direction);
+            GD.Print($"Querying CanMove at pos: {tilePos + coord}");
+            if (DoesOccupyPosition(coord))
+                continue;
+            bResult &= CanMoveStatic(tilePos + coord, direction, this);
         }
         return bResult;
     }
@@ -34,5 +38,20 @@ public partial class Moveable_Multiblock : Moveable
             bResult |= (tilePos + coord) == position;
         }
         return bResult;
+    }
+
+    public override void Move(Vector2I direction)
+    {
+        foreach (Vector2I coord in ExtraCoords_Internal)
+        {
+            if (LevelSingleton.Instance.GetMoveableAtPosition(tilePos + direction + coord) is Moveable moveableToPush)
+            {
+                if (moveableToPush != this)
+                {
+                    moveableToPush.Move(direction);
+                }
+            }
+        }
+        base.Move(direction);
     }
 }
