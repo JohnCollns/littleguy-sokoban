@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://b4kituakaifs6"]
+[gd_scene format=4 uid="uid://b4kituakaifs6"]
+
+[ext_resource type="TileSet" uid="uid://65uennwf8xfy" path="res://content/tiles/tileset_256.tres" id="1_xrrvk"]
 
 [node name="Node2D" type="Node2D" unique_id=1751878291]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1025603185 groups=["LevelTileMap"]]
+tile_map_data = PackedByteArray("AAAAAAAAAwAAAAAAAQD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+//7/AwAAAAAAAgD+/wIAAwAAAAAAAgA=")
+tile_set = ExtResource("1_xrrvk")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=575260378]
+zoom = Vector2(0.2, 0.2)
