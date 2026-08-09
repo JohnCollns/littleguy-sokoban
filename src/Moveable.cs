@@ -39,6 +39,13 @@ public partial class Moveable : Node2D
 
     public virtual bool CanMove(Vector2I direction)
     {
+        return CanMoveStatic(tilePos, direction);
+    }
+
+    // Should rename this function. 
+    // This is just a static version of CanMove(), it uses any location and then sees if its move is valid. 
+    public static bool CanMoveStatic(Vector2I tilePos, Vector2I direction)
+    {
         if (LevelSingleton.Instance.IsTileWall(tilePos + direction))
             return false;
         
@@ -48,6 +55,11 @@ public partial class Moveable : Node2D
             return moveableToPush.CanMove(direction);
         }
         return true;
+    }
+
+    public virtual bool DoesOccupyPosition(Vector2I position)
+    {
+        return position == tilePos;
     }
 
     public virtual void Move(Vector2I direction)
@@ -60,7 +72,7 @@ public partial class Moveable : Node2D
         LevelSingleton.Instance.AddMoveToTurn(this, direction);
     }
 
-    public void Slide(Vector2I Direction)
+    public virtual void Slide(Vector2I Direction)
     {
         ApplyTilePos();
         Vector2 target = PredictTilePos(Direction);

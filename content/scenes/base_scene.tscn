@@ -5,7 +5,7 @@
 [node name="Node2D" type="Node2D" unique_id=1751878291]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1025603185 groups=["LevelTileMap"]]
-tile_map_data = PackedByteArray("AAAAAAAAAwAAAAAAAQD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+//7/AwAAAAAAAgD+/wIAAwAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAAAAAAAAwAAAAAAAQD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAwAAAAAAAgD8//7/AwAAAAAAAwABAP7/AwAAAAAAAgA=")
 tile_set = ExtResource("1_xrrvk")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=575260378]

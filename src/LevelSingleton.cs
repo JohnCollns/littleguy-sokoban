@@ -24,7 +24,6 @@ public partial class LevelSingleton : Node
     public static LevelSingleton Instance { get; private set; }
     private TileMapLayer TileMapLayer;
     public List<Moveable> Moveables = new List<Moveable>();
-    //private List<MoveRecord[]> MoveHistory = new List<MoveRecord[]>();
     private List<List<MoveRecord>> MoveHistory = new List<List<MoveRecord>>();
 
     public override void _EnterTree()
@@ -60,7 +59,7 @@ public partial class LevelSingleton : Node
         // Is there a more computationally efficient way of doing this? 
         foreach (Moveable moveable in Moveables)
         {
-            if (moveable.tilePos == pos)
+            if (moveable.DoesOccupyPosition(pos))
             {
                 return moveable;
             }
