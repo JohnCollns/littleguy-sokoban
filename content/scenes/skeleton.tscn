@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ljkmdv57veeh"]
+
+[ext_resource type="Script" uid="uid://dbptox5hfdvbs" path="res://src/Moveable_Multiblock.cs" id="1_sgcxl"]
+[ext_resource type="Texture2D" uid="uid://bokoju5d8nv4j" path="res://content/sprites/skel_eyes.png" id="2_3lost"]
+
+[node name="Skeleton" type="Node2D" unique_id=82777774]
+script = ExtResource("1_sgcxl")
+ExtraCoords = PackedVector2Array(-1, 0, 1, 0)
+
+[node name="SkelEyes" type="Sprite2D" parent="." unique_id=238218376]
+texture = ExtResource("2_3lost")

@@ -34,11 +34,13 @@ public partial class Player : Moveable
     protected void HandleMovementInput(InputEvent @event)
     {
         Vector2I direction = InputDirections[@event.AsText()];
-        // GD.Print($"Handling Movement in direction: {direction},\tCanMove: {CanMove(direction)}");
+        GD.Print($"Handling Movement in direction: {direction},\tCanMove: {CanMove(direction)}");
         if (CanMove(direction))
         {
+            GD.Print($"HandleMovementInput inside CanMove");
             LevelSingleton.Instance.StartNewTurn();
             Move(direction);
+            GD.Print($"HandleMovementInput post Move");
         }
     }
 }

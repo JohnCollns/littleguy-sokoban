@@ -39,28 +39,48 @@ public partial class Moveable : Node2D
 
     public virtual bool CanMove(Vector2I direction)
     {
+        return CanMoveStatic(tilePos, direction, this);
+    }
+
+    // Should rename this function. 
+    // This is just a static version of CanMove(), it uses any location and then sees if its move is valid. 
+    public static bool CanMoveStatic(Vector2I tilePos, Vector2I direction, Moveable sourceMoveable)
+    {
         if (LevelSingleton.Instance.IsTileWall(tilePos + direction))
             return false;
         
         // Recursively check if this would push a moveable, and if that moveable can move in the direction. 
         if (LevelSingleton.Instance.GetMoveableAtPosition(tilePos + direction) is Moveable moveableToPush)
         {
+            GD.Print($"Querying moveable at: {moveableToPush.tilePos}");
+            if (sourceMoveable == moveableToPush)
+            {
+                return true;
+            }
             return moveableToPush.CanMove(direction);
         }
         return true;
+    }
+
+    public virtual bool DoesOccupyPosition(Vector2I position)
+    {
+        return position == tilePos;
     }
 
     public virtual void Move(Vector2I direction)
     {
         if (LevelSingleton.Instance.GetMoveableAtPosition(tilePos + direction) is Moveable moveableToPush)
         {
-            moveableToPush.Move(direction);
+            if (moveableToPush != this)
+            {
+                moveableToPush.Move(direction);
+            }
         }
         Slide(direction);
         LevelSingleton.Instance.AddMoveToTurn(this, direction);
     }
 
-    public void Slide(Vector2I Direction)
+    public virtual void Slide(Vector2I Direction)
     {
         ApplyTilePos();
         Vector2 target = PredictTilePos(Direction);

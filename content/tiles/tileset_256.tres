@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cdssilvm34ica" path="res://content/temp_sprites/tempbox256.png" id="3_aqc3p"]
 [ext_resource type="PackedScene" uid="uid://c1nlc0t77ik38" path="res://content/scenes/player.tscn" id="4_6q8mm"]
 [ext_resource type="PackedScene" uid="uid://6wgm53fn2x5m" path="res://content/scenes/crate.tscn" id="5_aqc3p"]
+[ext_resource type="PackedScene" uid="uid://ljkmdv57veeh" path="res://content/scenes/skeleton.tscn" id="6_d4pds"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d4pds"]
 texture = ExtResource("1_27oja")
@@ -25,6 +26,7 @@ texture_region_size = Vector2i(256, 256)
 resource_name = "Interactables"
 scenes/1/scene = ExtResource("4_6q8mm")
 scenes/2/scene = ExtResource("5_aqc3p")
+scenes/3/scene = ExtResource("6_d4pds")
 
 [resource]
 tile_size = Vector2i(256, 256)

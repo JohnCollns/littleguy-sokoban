@@ -24,7 +24,6 @@ public partial class LevelSingleton : Node
     public static LevelSingleton Instance { get; private set; }
     private TileMapLayer TileMapLayer;
     public List<Moveable> Moveables = new List<Moveable>();
-    //private List<MoveRecord[]> MoveHistory = new List<MoveRecord[]>();
     private List<List<MoveRecord>> MoveHistory = new List<List<MoveRecord>>();
 
     public override void _EnterTree()
@@ -46,6 +45,9 @@ public partial class LevelSingleton : Node
         TileMapLayer = (TileMapLayer)GetTree().GetFirstNodeInGroup("LevelTileMap");
         GD.Print($"OnLevelChanged(), TileMapLayer found: {TileMapLayer != null}");
     }
+    
+    [Signal]
+    public delegate void StartTurnEventHandler();
 
     public bool IsTileWall(Vector2I pos)
     {
@@ -60,7 +62,7 @@ public partial class LevelSingleton : Node
         // Is there a more computationally efficient way of doing this? 
         foreach (Moveable moveable in Moveables)
         {
-            if (moveable.tilePos == pos)
+            if (moveable.DoesOccupyPosition(pos))
             {
                 return moveable;
             }
@@ -70,6 +72,7 @@ public partial class LevelSingleton : Node
 
     public void StartNewTurn()
     {
+        EmitSignal(SignalName.StartTurn);
         MoveHistory.Add(new List<MoveRecord>());
     }
 
