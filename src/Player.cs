@@ -16,7 +16,7 @@ public partial class Player : Moveable
     {
         if (@event.IsPressed())
         {
-            GD.Print($"Received InputEvent: {@event.AsText()}");
+            // GD.Print($"Received InputEvent: {@event.AsText()}");
             if (InputDirections.ContainsKey(@event.AsText()))
             {
                 HandleMovementInput(@event);
@@ -30,7 +30,7 @@ public partial class Player : Moveable
     protected void HandleMovementInput(InputEvent @event)
     {
         Vector2I direction = InputDirections[@event.AsText()];
-        GD.Print($"Handling Movement in direction: {direction},\tCanMove: {CanMove(direction)}");
+        // GD.Print($"Handling Movement in direction: {direction},\tCanMove: {CanMove(direction)}");
         if (CanMove(direction))
         {
             Move(direction);

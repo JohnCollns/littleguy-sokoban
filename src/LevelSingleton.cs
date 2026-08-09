@@ -2,17 +2,22 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-[GlobalClass]
+//[GlobalClass]
 public partial class LevelSingleton : Node
 {
     public static LevelSingleton Instance { get; private set; }
     private TileMapLayer TileMapLayer;
-    private List<Moveable> Moveables;
+    public List<Moveable> Moveables = new List<Moveable>();
+
+    public override void _EnterTree()
+    {
+        base._EnterTree();
+        LevelSingleton.Instance = this;
+    }
 
     public override void _Ready()
     {
         base._Ready();
-        Instance = this;
         GetTree().SceneChanged += OnLevelChanged;
         OnLevelChanged();
     }
@@ -29,5 +34,18 @@ public partial class LevelSingleton : Node
             return false;
         int posSourceID = TileMapLayer.GetCellSourceId(pos); 
         return Constants.BlockingTileMapIDs.Contains(posSourceID);
+    }
+
+    public Moveable GetMoveableAtPosition(Vector2I pos)
+    {
+        // Is there a more computationally efficient way of doing this? 
+        foreach (Moveable moveable in Moveables)
+        {
+            if (moveable.tilePos == pos)
+            {
+                return moveable;
+            }
+        }
+        return null;
     }
 }
