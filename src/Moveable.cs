@@ -14,11 +14,11 @@ public partial class Moveable : Node2D
 
     public void ApplyTilePos()
     {
-        Position = (tilePos * Constants.GridUnits) + Constants.HalfGridOffset;
+        Position = (tilePos * Constants.GridSize) + Constants.HalfGridOffset;
     }
     public Vector2 PredictTilePos(Vector2I direction)
     {
-        return ((tilePos + direction) * Constants.GridUnits) + Constants.HalfGridOffset;
+        return ((tilePos + direction) * Constants.GridSize) + Constants.HalfGridOffset;
     }
 
     public virtual bool CanMove(Vector2I direction)
@@ -36,12 +36,11 @@ public partial class Moveable : Node2D
     public void Slide(Vector2I Direction)
     {
         ApplyTilePos();
+        Vector2 target = PredictTilePos(Direction);
         tilePos += Direction;
 
-        Vector2 target = PredictTilePos(Direction);
-        //tween = new Tween();
         tween = CreateTween();
-        // tween.tween_property(self, "position", target, 0.08f);
         tween.TweenProperty(this, "position", target, Constants.MoveDuration);
+        //GD.Print($"Slide, tweening from: {tilePos} => {Position}, to: {target}");
     }
 }

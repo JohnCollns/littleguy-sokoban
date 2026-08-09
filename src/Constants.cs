@@ -14,8 +14,8 @@ public static class Constants
     // public static Vector2 HalfGridOffset = new Vector2(GridUnits_Float * 0.5f, GridUnits_Float * 0.5f);
     
     // No scaling
-    public static int GridUnits => SpriteResolution; 
-    public static Vector2 HalfGridOffset = new Vector2(GridUnits * 0.5f, GridUnits * 0.5f); 
+    public static int GridSize => SpriteResolution; 
+    public static readonly Vector2 HalfGridOffset = new Vector2(GridSize * 0.5f, GridSize * 0.5f); 
     
     // ANIMATION
     public static readonly float MoveDuration = 0.08f;
