@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://btdo6s2hf7fd2"]
 
 [ext_resource type="TileSet" uid="uid://65uennwf8xfy" path="res://content/tiles/tileset_256.tres" id="1_a8jng"]
+[ext_resource type="Script" uid="uid://dvmoji5ag3m8j" path="res://src/LevelInfo.cs" id="2_iofwe"]
 
 [node name="Node2D" type="Node2D" unique_id=1751878291]
 
@@ -11,3 +12,8 @@ tile_set = ExtResource("1_a8jng")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=575260378]
 zoom = Vector2(0.2, 0.2)
+
+[node name="Node" type="Node" parent="." unique_id=1233280366]
+script = ExtResource("2_iofwe")
+LevelName = "level3"
+NextLevel = "res://content/scenes/level4.tscn"
