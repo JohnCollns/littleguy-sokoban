@@ -49,12 +49,23 @@ public partial class LevelSingleton : Node
     [Signal]
     public delegate void StartTurnEventHandler();
 
+    public int GetTileMapTerrainIDAtPos(Vector2I pos)
+    {
+        if (TileMapLayer.GetCellTileData(pos) is TileData arg)
+        {
+            return arg.Terrain;
+        }
+        return -1;
+    }
+    
     public bool IsTileWall(Vector2I pos)
     {
         if (TileMapLayer == null)
             return false;
-        int posSourceID = TileMapLayer.GetCellSourceId(pos); 
-        return Constants.BlockingTileMapIDs.Contains(posSourceID);
+        
+        int posSourceID = TileMapLayer.GetCellSourceId(pos);
+        int posTerrainID = GetTileMapTerrainIDAtPos(pos);
+        return Constants.BlockingTileMapIDs.Contains(posSourceID) || Constants.WallTerrainID == posTerrainID;
     }
 
     public Moveable GetMoveableAtPosition(Vector2I pos)

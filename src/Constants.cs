@@ -46,4 +46,19 @@ public static class Constants
     {
         WallTileMapID, HedgeTileMapID
     };
+
+    public static readonly int WallTerrainID = 0;
+    public static readonly int GrassTerrainID = 1;  // USELESS
+    public static readonly int GoalTerrainID = 2;
+    
+    // GAMEPLAY
+    public static HashSet<EBlockType> Friends = new HashSet<EBlockType>()
+    {
+        EBlockType.Shrimp,
+        EBlockType.WizardGood,
+        EBlockType.WizardBad,
+        EBlockType.Skeleton,
+        EBlockType.Happy,
+        EBlockType.Nerd,
+    };
 }
