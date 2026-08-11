@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://6wgm53fn2x5m"]
 
 [ext_resource type="Script" uid="uid://boa87tb3vcxq3" path="res://src/Moveable.cs" id="1_u522w"]
-[ext_resource type="Texture2D" uid="uid://cdssilvm34ica" path="res://content/temp_sprites/tempbox256.png" id="2_8ii42"]
+[ext_resource type="Texture2D" uid="uid://blrfbfgswyvde" path="res://content/sprites/box.png" id="2_8ii42"]
 
 [node name="Crate" type="Node2D" unique_id=385424322]
 script = ExtResource("1_u522w")
+BlockType = 2
 
 [node name="Tempbox256" type="Sprite2D" parent="." unique_id=1287777533]
 texture = ExtResource("2_8ii42")

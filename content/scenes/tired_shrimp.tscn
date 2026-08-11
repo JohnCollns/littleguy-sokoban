@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://t1cwv2vrr5j6"]
+
+[ext_resource type="Script" uid="uid://dbptox5hfdvbs" path="res://src/Moveable_Multiblock.cs" id="1_3yrjy"]
+[ext_resource type="Texture2D" uid="uid://1llk5uqeshp0" path="res://content/sprites/tiredshrimp.png" id="2_dtsl0"]
+
+[node name="TiredShrimp" type="Node2D" unique_id=223444175]
+script = ExtResource("1_3yrjy")
+ExtraCoords = PackedVector2Array(1, 0, 0, 1)
+BlockType = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851065305]
+position = Vector2(128, 128)
+texture = ExtResource("2_dtsl0")

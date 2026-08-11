@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dul6fypt4rv31"]
+
+[ext_resource type="Script" uid="uid://boa87tb3vcxq3" path="res://src/Moveable.cs" id="1_3hk0m"]
+[ext_resource type="Texture2D" uid="uid://cst1fwq3wqxo0" path="res://content/sprites/tobbaco.png" id="2_3hk0m"]
+
+[node name="Tobacco" type="Node2D" unique_id=223444175]
+script = ExtResource("1_3hk0m")
+BlockType = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851065305]
+texture = ExtResource("2_3hk0m")

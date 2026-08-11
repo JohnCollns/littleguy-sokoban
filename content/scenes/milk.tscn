@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://df0fakm246kq2"]
+
+[ext_resource type="Script" uid="uid://boa87tb3vcxq3" path="res://src/Moveable.cs" id="1_ihm1o"]
+[ext_resource type="Texture2D" uid="uid://ddflbo8132420" path="res://content/sprites/milk.png" id="2_ihm1o"]
+
+[node name="Milk" type="Node2D" unique_id=223444175]
+script = ExtResource("1_ihm1o")
+BlockType = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851065305]
+texture = ExtResource("2_ihm1o")

@@ -6,6 +6,7 @@
 [node name="Skeleton" type="Node2D" unique_id=82777774]
 script = ExtResource("1_sgcxl")
 ExtraCoords = PackedVector2Array(-1, 0, 1, 0)
+BlockType = 6
 
 [node name="SkelEyes" type="Sprite2D" parent="." unique_id=238218376]
 texture = ExtResource("2_3lost")

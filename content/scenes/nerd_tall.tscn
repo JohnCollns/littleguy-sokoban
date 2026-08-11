@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cjwnpuoq048i5"]
+
+[ext_resource type="Script" uid="uid://dbptox5hfdvbs" path="res://src/Moveable_Multiblock.cs" id="1_5ifrx"]
+[ext_resource type="Texture2D" uid="uid://bmnsafxji61y4" path="res://content/sprites/nerdtall.png" id="2_khdej"]
+
+[node name="NerdTall" type="Node2D" unique_id=223444175]
+script = ExtResource("1_5ifrx")
+ExtraCoords = PackedVector2Array(0, 1)
+BlockType = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851065305]
+position = Vector2(0, 128)
+texture = ExtResource("2_khdej")

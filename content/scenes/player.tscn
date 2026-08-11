@@ -5,6 +5,7 @@
 
 [node name="Player" type="Node2D" unique_id=2015964702]
 script = ExtResource("1_jaad6")
+BlockType = 1
 
 [node name="SpriteNode" type="Sprite2D" parent="." unique_id=1187732251]
 texture = ExtResource("2_jaad6")

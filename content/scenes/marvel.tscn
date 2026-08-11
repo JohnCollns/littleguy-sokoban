@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d2shdq7y1luwc"]
+
+[ext_resource type="Script" uid="uid://boa87tb3vcxq3" path="res://src/Moveable.cs" id="1_350yg"]
+[ext_resource type="Texture2D" uid="uid://byqecs7jna2jw" path="res://content/sprites/marvel.png" id="2_350yg"]
+
+[node name="Marvel" type="Node2D" unique_id=223444175]
+script = ExtResource("1_350yg")
+BlockType = 11
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851065305]
+texture = ExtResource("2_350yg")

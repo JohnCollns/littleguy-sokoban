@@ -4,6 +4,7 @@ using System;
 public partial class Moveable : Node2D
 {
     public Vector2I tilePos { get; protected set; }
+    [Export] public EBlockType BlockType { get; protected set; }
     protected Tween tween;
 
     public override void _Ready()

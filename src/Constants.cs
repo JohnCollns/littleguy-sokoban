@@ -2,6 +2,25 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+public enum EBlockType
+{
+    None,
+    Player,
+    Crate,
+    
+    Shrimp,
+    WizardGood,
+    WizardBad,
+    Skeleton,
+    Happy,
+    Nerd,
+    
+    Powder,
+    Tobacco,
+    Marvel,
+    Milk,
+}
+
 public static class Constants
 {
     public static readonly int SpriteResolution = 256;

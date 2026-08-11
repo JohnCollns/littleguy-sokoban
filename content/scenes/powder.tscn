@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b257r3kn41ngm"]
+
+[ext_resource type="Script" uid="uid://boa87tb3vcxq3" path="res://src/Moveable.cs" id="1_pal2n"]
+[ext_resource type="Texture2D" uid="uid://bi8obb4dltaet" path="res://content/sprites/wizardpowder.png" id="2_pal2n"]
+
+[node name="Powder" type="Node2D" unique_id=223444175]
+script = ExtResource("1_pal2n")
+BlockType = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851065305]
+texture = ExtResource("2_pal2n")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cirxdo53b0vfq"]
+
+[ext_resource type="Script" uid="uid://dbptox5hfdvbs" path="res://src/Moveable_Multiblock.cs" id="1_s50hq"]
+[ext_resource type="Texture2D" uid="uid://xxhkfpjpjqrj" path="res://content/sprites/wiz.png" id="2_qohth"]
+
+[node name="Wizard" type="Node2D" unique_id=223444175]
+script = ExtResource("1_s50hq")
+ExtraCoords = PackedVector2Array(0, 1, 0, -1)
+BlockType = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851065305]
+texture = ExtResource("2_qohth")

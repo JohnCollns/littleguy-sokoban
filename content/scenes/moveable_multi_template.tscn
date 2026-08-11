@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://qacedy7yuv7j"]
+
+[ext_resource type="Script" uid="uid://dbptox5hfdvbs" path="res://src/Moveable_Multiblock.cs" id="1_m6olq"]
+
+[node name="MoveableTemplate" type="Node2D" unique_id=223444175]
+script = ExtResource("1_m6olq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851065305]

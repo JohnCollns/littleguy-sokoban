@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://6kqjriv3a1um"]
+
+[ext_resource type="Script" uid="uid://boa87tb3vcxq3" path="res://src/Moveable.cs" id="1_ptlwa"]
+[ext_resource type="Texture2D" uid="uid://dvmrhee4uyys5" path="res://content/sprites/happy2.png" id="2_ptlwa"]
+
+[node name="MoveableTemplate" type="Node2D" unique_id=223444175]
+script = ExtResource("1_ptlwa")
+BlockType = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851065305]
+texture = ExtResource("2_ptlwa")
