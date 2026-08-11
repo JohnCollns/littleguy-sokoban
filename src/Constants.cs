@@ -41,8 +41,9 @@ public static class Constants
     
     // COLLISION
     public static readonly int WallTileMapID = 0;
+    public static readonly int HedgeTileMapID = 14;
     public static HashSet<int> BlockingTileMapIDs = new HashSet<int>()
     {
-        WallTileMapID
+        WallTileMapID, HedgeTileMapID
     };
 }
