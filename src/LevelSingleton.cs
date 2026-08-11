@@ -25,6 +25,7 @@ public partial class LevelSingleton : Node
     private TileMapLayer TileMapLayer;
     public List<Moveable> Moveables = new List<Moveable>();
     private List<List<MoveRecord>> MoveHistory = new List<List<MoveRecord>>();
+    public LevelInfo LevelInfo;
 
     public override void _EnterTree()
     {
@@ -68,6 +69,11 @@ public partial class LevelSingleton : Node
         return Constants.BlockingTileMapIDs.Contains(posSourceID) || Constants.WallTerrainID == posTerrainID;
     }
 
+    public bool IsTileGoal(Vector2I pos)
+    {
+        return GetTileMapTerrainIDAtPos(pos) == Constants.GoalTerrainID;
+    }
+
     public Moveable GetMoveableAtPosition(Vector2I pos)
     {
         // Is there a more computationally efficient way of doing this? 
@@ -85,6 +91,7 @@ public partial class LevelSingleton : Node
     {
         EmitSignal(SignalName.StartTurn);
         MoveHistory.Add(new List<MoveRecord>());
+        TestForVictory();
     }
 
     public void AddMoveToTurn(Moveable moveable, Vector2I direction)
@@ -104,5 +111,27 @@ public partial class LevelSingleton : Node
         {
             moveRecord.Moveable.Slide(-moveRecord.Direction);
         }
+    }
+
+    private void TestForVictory()
+    {
+        foreach (Moveable moveable in Moveables)
+        {
+            if (moveable.IsLittleGuy())
+            {
+                if (!moveable.IsInGoal())
+                {
+                    return;
+                }
+            }
+        }
+        Victory();
+    }
+
+    private void Victory()
+    {
+        GD.Print($"Victory on level: {LevelInfo.LevelName}");
+        GD.Print($"About to try loading level: {LevelInfo.NextLevel}");
+        GetTree().ChangeSceneToFile(LevelInfo.NextLevel);
     }
 }

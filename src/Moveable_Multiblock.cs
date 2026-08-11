@@ -54,4 +54,14 @@ public partial class Moveable_Multiblock : Moveable
         }
         base.Move(direction);
     }
+
+    public override bool IsInGoal()
+    {
+        bool bResult = base.IsInGoal();
+        foreach (Vector2I coord in ExtraCoords_Internal)
+        {
+            bResult &= LevelSingleton.Instance.IsTileGoal(tilePos + coord);
+        }
+        return bResult;
+    }
 }

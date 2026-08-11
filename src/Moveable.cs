@@ -91,4 +91,14 @@ public partial class Moveable : Node2D
         tween.TweenProperty(this, "position", target, Constants.MoveDuration);
         //GD.Print($"Slide, tweening from: {tilePos} => {Position}, to: {target}");
     }
+
+    public virtual bool IsInGoal()
+    {
+        return LevelSingleton.Instance.IsTileGoal(tilePos);
+    }
+
+    public bool IsLittleGuy()
+    {
+        return Constants.Friends.Contains(BlockType);
+    }
 }
