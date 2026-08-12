@@ -28,6 +28,11 @@ public partial class Player : Moveable
             {
                 LevelSingleton.Instance.UndoPreviousTurn();
             }
+
+            if (@event.AsText() == "F10")
+            {
+                GetTree().ChangeSceneToFile(Constants.BossLevelString);
+            }
         }
     }
     
@@ -39,7 +44,8 @@ public partial class Player : Moveable
         {
             LevelSingleton.Instance.StartNewTurn();
             Move(direction);
-            GD.Print($"ID at: {LevelSingleton.Instance.GetTileMapTerrainIDAtPos(tilePos)}");
+            //GD.Print($"ID at: {LevelSingleton.Instance.GetTileMapTerrainIDAtPos(tilePos)}");
+            GD.Print($"Player at: {tilePos}");
         }
     }
 }

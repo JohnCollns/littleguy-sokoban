@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bblepyi4twos6"]
+
+[ext_resource type="Script" uid="uid://gcau1ajsb70l" path="res://src/Moveable_Orb.cs" id="1_cbijk"]
+[ext_resource type="Texture2D" uid="uid://d3vmgjbddlune" path="res://content/sprites/orb1.png" id="2_5qiqy"]
+[ext_resource type="Texture2D" uid="uid://cgomg3y1p3qiu" path="res://content/sprites/orb2.png" id="3_2vkwn"]
+[ext_resource type="Texture2D" uid="uid://7na0kyp1loif" path="res://content/sprites/orb3.png" id="4_cl0ht"]
+[ext_resource type="Texture2D" uid="uid://dr2jnln5awk28" path="res://content/sprites/orb4.png" id="5_420u3"]
+
+[node name="Orb" type="Node2D" unique_id=1351635953]
+script = ExtResource("1_cbijk")
+OrbTextures = Array[Texture2D]([ExtResource("2_5qiqy"), ExtResource("3_2vkwn"), ExtResource("4_cl0ht"), ExtResource("5_420u3")])
+BlockType = 13
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=594772323]
+texture = ExtResource("2_5qiqy")

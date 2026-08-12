@@ -19,6 +19,9 @@ public enum EBlockType
     Tobacco,
     Marvel,
     Milk,
+    
+    Orb,
+    Bouncer,
 }
 
 public static class Constants
@@ -50,6 +53,7 @@ public static class Constants
     public static readonly int WallTerrainID = 0;
     public static readonly int GrassTerrainID = 1;  // USELESS
     public static readonly int GoalTerrainID = 2;
+    public static readonly int WizardTerrainID = 3;
     
     // GAMEPLAY
     public static HashSet<EBlockType> Friends = new HashSet<EBlockType>()
@@ -61,4 +65,36 @@ public static class Constants
         EBlockType.Happy,
         EBlockType.Nerd,
     };
+
+    public static Vector2 TileCoordToSpace(Vector2I tileCoord)
+    {
+        return new Vector2(tileCoord.X * SpriteResolution, tileCoord.Y * SpriteResolution);
+    }
+
+    public static readonly Vector2I[] RandomDirections = new Vector2I[]
+    {
+        new Vector2I(1, 0),
+        new Vector2I(-1, 0),
+        new Vector2I(0, 1),
+        new Vector2I(0, -1),
+    };
+
+    public static readonly float ChanceToStayStill = 0.7f;
+    public static Vector2I GetRandomDirection()
+    {
+        var rng = new Random();
+        return RandomDirections[rng.Next(RandomDirections.Length - 1)];
+    }
+
+    public static Vector2I GetRandomDirectionOrStayStill()
+    {
+        var rng = new Random();
+        if (rng.NextDouble() < ChanceToStayStill)
+        {
+            return Vector2I.Zero;
+        }
+        return GetRandomDirection();
+    }
+
+    public static readonly string BossLevelString = "res://content/scenes/boss_test.tscn";
 }

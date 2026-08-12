@@ -46,6 +46,12 @@ public partial class Moveable_Multiblock : Moveable
         {
             if (LevelSingleton.Instance.GetMoveableAtPosition(tilePos + direction + coord) is Moveable moveableToPush)
             {
+                if (moveableToPush.BlockType == EBlockType.Orb && BlockType != EBlockType.Bouncer)
+                {
+                    GD.Print($"Block of type: {BlockType} moved into orb, destroying self");
+                    moveableToPush.Destroy();
+                    Destroy();
+                }
                 if (moveableToPush != this)
                 {
                     moveableToPush.Move(direction);
