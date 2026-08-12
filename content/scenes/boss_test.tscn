@@ -44,7 +44,7 @@ texture = ExtResource("5_ikdq0")
 
 [node name="HealthbarRoot" type="Node2D" parent="." unique_id=340343412 node_paths=PackedStringArray("FriendPips", "WizardPips")]
 script = ExtResource("8_ix7mu")
-FriendPips = [NodePath("FriendPip1"), NodePath("FriendPip2"), NodePath("FriendPip3")]
+FriendPips = [NodePath("FriendPip1"), NodePath("FriendPip2"), NodePath("FriendPip3"), NodePath("FriendPip4"), NodePath("FriendPip5")]
 WizardPips = [NodePath("WizardPip1"), NodePath("WizardPip2"), NodePath("WizardPip3"), NodePath("WizardPip4"), NodePath("WizardPip5"), NodePath("WizardPip6"), NodePath("WizardPip7"), NodePath("WizardPip8")]
 
 [node name="FriendPip1" type="Sprite2D" parent="HealthbarRoot" unique_id=227470716]
@@ -62,6 +62,18 @@ texture = ExtResource("8_8id21")
 [node name="FriendPip3" type="Sprite2D" parent="HealthbarRoot" unique_id=196593662]
 modulate = Color(1, 1, 1, 0.7529412)
 position = Vector2(-2863, -2238)
+scale = Vector2(2, 2)
+texture = ExtResource("8_8id21")
+
+[node name="FriendPip4" type="Sprite2D" parent="HealthbarRoot" unique_id=1108857232]
+modulate = Color(1, 1, 1, 0.7529412)
+position = Vector2(-2163, -2238)
+scale = Vector2(2, 2)
+texture = ExtResource("8_8id21")
+
+[node name="FriendPip5" type="Sprite2D" parent="HealthbarRoot" unique_id=964378963]
+modulate = Color(1, 1, 1, 0.7529412)
+position = Vector2(-1463, -2238)
 scale = Vector2(2, 2)
 texture = ExtResource("8_8id21")
 
