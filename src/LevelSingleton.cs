@@ -74,6 +74,11 @@ public partial class LevelSingleton : Node
         return GetTileMapTerrainIDAtPos(pos) == Constants.GoalTerrainID;
     }
 
+    public bool IsTileWizard(Vector2I pos)
+    {
+        return GetTileMapTerrainIDAtPos(pos) == Constants.WizardTerrainID;
+    }
+
     public Moveable GetMoveableAtPosition(Vector2I pos)
     {
         // Is there a more computationally efficient way of doing this? 

@@ -3,7 +3,7 @@ using System;
 
 public partial class Moveable : Node2D
 {
-    public Vector2I tilePos { get; protected set; }
+    public Vector2I tilePos { get; set; }
     [Export] public EBlockType BlockType { get; protected set; }
     protected Tween tween;
 

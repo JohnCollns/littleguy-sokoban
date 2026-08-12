@@ -19,6 +19,8 @@ public enum EBlockType
     Tobacco,
     Marvel,
     Milk,
+    
+    Orb
 }
 
 public static class Constants
@@ -50,6 +52,7 @@ public static class Constants
     public static readonly int WallTerrainID = 0;
     public static readonly int GrassTerrainID = 1;  // USELESS
     public static readonly int GoalTerrainID = 2;
+    public static readonly int WizardTerrainID = 3;
     
     // GAMEPLAY
     public static HashSet<EBlockType> Friends = new HashSet<EBlockType>()
@@ -61,4 +64,9 @@ public static class Constants
         EBlockType.Happy,
         EBlockType.Nerd,
     };
+
+    public static Vector2 TileCoordToSpace(Vector2I tileCoord)
+    {
+        return new Vector2(tileCoord.X * SpriteResolution, tileCoord.Y * SpriteResolution);
+    }
 }
