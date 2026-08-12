@@ -79,7 +79,7 @@ public static class Constants
         new Vector2I(0, -1),
     };
 
-    public static readonly float ChanceToStayStill = 0.4f;
+    public static readonly float ChanceToStayStill = 0.12f;
     public static Vector2I GetRandomDirection()
     {
         var rng = new Random();

@@ -72,6 +72,12 @@ public partial class Moveable : Node2D
     {
         if (LevelSingleton.Instance.GetMoveableAtPosition(tilePos + direction) is Moveable moveableToPush)
         {
+            if (moveableToPush.BlockType == EBlockType.Orb)
+            {
+                GD.Print($"Block of type: {BlockType} moved into orb, destroying self");
+                moveableToPush.Destroy();
+                Destroy();
+            }
             if (moveableToPush != this)
             {
                 moveableToPush.Move(direction);
@@ -100,5 +106,16 @@ public partial class Moveable : Node2D
     public bool IsLittleGuy()
     {
         return Constants.Friends.Contains(BlockType);
+    }
+
+    public virtual void Destroy()
+    {
+        // don't know what to put
+        if (Constants.Friends.Contains(BlockType))
+        {
+            LevelSingleton.Instance.EmitFriendDamaged();
+        }
+
+        QueueFree();
     }
 }

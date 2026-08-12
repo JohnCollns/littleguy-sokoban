@@ -18,12 +18,20 @@ public partial class WizardManager : Node
     public override void _Ready()
     {
         CurrentHealth = MaxHealth;
+        BossHealthBar.Instance.SetWizardHealthBar(CurrentHealth);
         OrbSpawningCoords_Internal = new Vector2I[OrbSpawningCoords.Length];
         for (int i=0; i < OrbSpawningCoords.Length; i++)
         {
             OrbSpawningCoords_Internal[i] = MathsHelper.Vector2IFromVector2(OrbSpawningCoords[i]);
         }
         LevelSingleton.Instance.StartTurn += OnTurnStart;
+        LevelSingleton.Instance.bIsBossLevel = true;
+    }
+
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+        LevelSingleton.Instance.bIsBossLevel = false;
     }
 
     private void OnTurnStart()
@@ -65,6 +73,7 @@ public partial class WizardManager : Node
     public void TakeDamage()
     {
         CurrentHealth -= 1;
+        BossHealthBar.Instance.SetWizardHealthBar(CurrentHealth);
         GD.Print($"Wizard took damage, health remaining: {CurrentHealth}");
         if (CurrentHealth <= 0)
         {

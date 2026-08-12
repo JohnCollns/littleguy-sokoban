@@ -28,6 +28,7 @@ public partial class LevelSingleton : Node
     public LevelInfo LevelInfo;
     public int FriendHealth { get; private set; }
     private bool bShouldTestVictory = true;
+    public bool bIsBossLevel = false;
 
     public override void _EnterTree()
     {
@@ -48,6 +49,7 @@ public partial class LevelSingleton : Node
     {
         MoveHistory.Clear();
         FriendHealth = 3;
+        BossHealthBar.Instance.SetFriendHealthBar(FriendHealth);
         TileMapLayer = (TileMapLayer)GetTree().GetFirstNodeInGroup("LevelTileMap");
         GD.Print($"OnLevelChanged(), TileMapLayer found: {TileMapLayer != null}");
     }
@@ -66,6 +68,7 @@ public partial class LevelSingleton : Node
     private void OnFriendDamaged()
     {
         FriendHealth--;
+        BossHealthBar.Instance.SetFriendHealthBar(FriendHealth);
         if (FriendHealth <= 0)
         {
             GameOver();
@@ -153,6 +156,7 @@ public partial class LevelSingleton : Node
     {
         EmitSignal(SignalName.StartTurn);
         MoveHistory.Add(new List<MoveRecord>());
+        TryHandleBossLevelTurn();
         TestForVictory();
     }
 
@@ -172,6 +176,24 @@ public partial class LevelSingleton : Node
         foreach (MoveRecord moveRecord in lastMove)
         {
             moveRecord.Moveable.Slide(-moveRecord.Direction);
+        }
+    }
+
+    private void TryHandleBossLevelTurn()
+    {
+        if (!bIsBossLevel)
+            return;
+
+        foreach (Moveable moveable in Moveables)
+        {
+            if (Constants.Friends.Contains(moveable.BlockType))
+            {
+                Vector2I randDir = Constants.GetRandomDirectionOrStayStill();
+                if (randDir != Vector2I.Zero && moveable.CanMove(randDir))
+                {
+                    moveable.Move(randDir);
+                }
+            }
         }
     }
 

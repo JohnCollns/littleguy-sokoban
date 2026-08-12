@@ -24,6 +24,10 @@ public partial class Moveable_Orb : Moveable
             WizardManager.Instance.TakeDamage();
             Destroy();
         }
+        if (LevelSingleton.Instance.IsTileWall(tilePos + direction))
+        {
+            Destroy();
+        }
 
         EBlockType nextMoveBlockType = LevelSingleton.Instance.GetBlocktypeAtPosition(tilePos + direction);
         switch (nextMoveBlockType)
@@ -75,7 +79,7 @@ public partial class Moveable_Orb : Moveable
         }
     }
 
-    private void Destroy()
+    public override void Destroy()
     {
         LevelSingleton.Instance.StartTurn -= OnTurnStart;
         // what??

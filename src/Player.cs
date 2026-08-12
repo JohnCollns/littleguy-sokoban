@@ -28,6 +28,11 @@ public partial class Player : Moveable
             {
                 LevelSingleton.Instance.UndoPreviousTurn();
             }
+
+            if (@event.AsText() == "F10")
+            {
+                GetTree().ChangeSceneToFile(Constants.BossLevelString);
+            }
         }
     }
     
