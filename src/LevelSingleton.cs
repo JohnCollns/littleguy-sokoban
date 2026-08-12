@@ -26,6 +26,8 @@ public partial class LevelSingleton : Node
     public List<Moveable> Moveables = new List<Moveable>();
     private List<List<MoveRecord>> MoveHistory = new List<List<MoveRecord>>();
     public LevelInfo LevelInfo;
+    public int FriendHealth { get; private set; }
+    private bool bShouldTestVictory = true;
 
     public override void _EnterTree()
     {
@@ -38,17 +40,54 @@ public partial class LevelSingleton : Node
         base._Ready();
         GetTree().SceneChanged += OnLevelChanged;
         OnLevelChanged();
+        PlayerDamaged += OnPlayerDamaged;
+        FriendDamaged += OnFriendDamaged;
     }
 
     private void OnLevelChanged()
     {
         MoveHistory.Clear();
+        FriendHealth = 3;
         TileMapLayer = (TileMapLayer)GetTree().GetFirstNodeInGroup("LevelTileMap");
         GD.Print($"OnLevelChanged(), TileMapLayer found: {TileMapLayer != null}");
     }
     
     [Signal]
     public delegate void StartTurnEventHandler();
+    
+    [Signal]
+    public delegate void PlayerDamagedEventHandler();
+    public void EmitPlayerDamaged() { EmitSignal(SignalName.PlayerDamaged); }
+    
+    [Signal]
+    public delegate void FriendDamagedEventHandler();
+    public void EmitFriendDamaged() { EmitSignal(SignalName.FriendDamaged); }
+
+    private void OnFriendDamaged()
+    {
+        FriendHealth--;
+        if (FriendHealth <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    private void OnPlayerDamaged()
+    {
+        GameOver();
+    }
+
+    private void GameOver()
+    {
+        // would be good to have some delay ?
+        //GetTree().ReloadCurrentScene();
+        bShouldTestVictory = false;
+        GD.Print($"Gameover, changing scene to: {Constants.BossLevelString}");
+        GetTree().ChangeSceneToFile(Constants.BossLevelString);
+        //bShouldTestVictory = true;
+        // it will cause a bug, we will lose TestForVictory() permanently at this point, 
+        // but the other option was each time we run this victory goes and loads another level. 
+    }
 
     public int GetTileMapTerrainIDAtPos(Vector2I pos)
     {
@@ -86,6 +125,15 @@ public partial class LevelSingleton : Node
             return moveable.BlockType == type;
         }
         return false;
+    }
+
+    public EBlockType GetBlocktypeAtPosition(Vector2I pos)
+    {
+        if (GetMoveableAtPosition(pos) is Moveable moveable)
+        {
+            return moveable.BlockType;
+        }
+        return EBlockType.None;
     }
 
     public Moveable GetMoveableAtPosition(Vector2I pos)
@@ -129,6 +177,9 @@ public partial class LevelSingleton : Node
 
     private void TestForVictory()
     {
+        if (!bShouldTestVictory)
+            return;
+        
         foreach (Moveable moveable in Moveables)
         {
             if (moveable.IsLittleGuy())

@@ -70,4 +70,31 @@ public static class Constants
     {
         return new Vector2(tileCoord.X * SpriteResolution, tileCoord.Y * SpriteResolution);
     }
+
+    public static readonly Vector2I[] RandomDirections = new Vector2I[]
+    {
+        new Vector2I(1, 0),
+        new Vector2I(-1, 0),
+        new Vector2I(0, 1),
+        new Vector2I(0, -1),
+    };
+
+    public static readonly float ChanceToStayStill = 0.4f;
+    public static Vector2I GetRandomDirection()
+    {
+        var rng = new Random();
+        return RandomDirections[rng.Next(RandomDirections.Length - 1)];
+    }
+
+    public static Vector2I GetRandomDirectionOrStayStill()
+    {
+        var rng = new Random();
+        if (rng.NextDouble() < ChanceToStayStill)
+        {
+            return Vector2I.Zero;
+        }
+        return GetRandomDirection();
+    }
+
+    public static readonly string BossLevelString = "res://content/scenes/boss_test.tscn";
 }

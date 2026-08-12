@@ -11,8 +11,7 @@ public partial class Moveable_Orb : Moveable
     {
         base._EnterTree();
         Sprite2D = GetNode<Sprite2D>("Sprite2D");
-        var rng = new Random();
-        Sprite2D.Texture = OrbTextures[rng.Next(OrbTextures.Length - 1)];
+        AssignRandomSprite();
         direction = new Vector2I(0, 1);
         
         LevelSingleton.Instance.StartTurn += OnTurnStart;
@@ -26,28 +25,54 @@ public partial class Moveable_Orb : Moveable
             Destroy();
         }
 
-        if (LevelSingleton.Instance.IsTileBlockType(tilePos + direction, EBlockType.Bouncer))
+        EBlockType nextMoveBlockType = LevelSingleton.Instance.GetBlocktypeAtPosition(tilePos + direction);
+        switch (nextMoveBlockType)
         {
-            GD.Print($"Orb at {tilePos} hit bouncer, inverting direction.");
-            direction *= -1;
-        }
-        if (LevelSingleton.Instance.IsTileBlockType(tilePos + direction, EBlockType.Orb))
-        {
-            GD.Print($"Orb at {tilePos} hit orb.");
-            if (LevelSingleton.Instance.GetMoveableAtPosition(tilePos + direction) is Moveable_Orb orb)
+            case EBlockType.Orb:
             {
-                orb.Destroy();
+                GD.Print($"Orb at {tilePos} hit orb.");
+                if (LevelSingleton.Instance.GetMoveableAtPosition(tilePos + direction) is Moveable_Orb orb)
+                {
+                    orb.Destroy();
+                }
+
+                Destroy();
+                break;
             }
-            Destroy();
+            case EBlockType.Bouncer:
+            {
+                GD.Print($"Orb at {tilePos} hit bouncer, inverting direction.");
+                direction *= -1;
+                break;
+            }
+            case EBlockType.Player:
+            {
+                GD.Print($"Orb at {tilePos} hit player.");
+                LevelSingleton.Instance.EmitPlayerDamaged();
+                break;
+            }
+            default:
+            {
+                if (Constants.Friends.Contains(nextMoveBlockType))
+                {
+                    GD.Print($"Orb at {tilePos} hit a friend: {nextMoveBlockType}.");
+                    LevelSingleton.Instance.EmitFriendDamaged();
+                    if (LevelSingleton.Instance.GetMoveableAtPosition(tilePos + direction) is Moveable moveable)
+                    {
+                        moveable.QueueFree();
+                    }
+                    Destroy();
+                }
+                break;
+            }
         }
         
+        AssignRandomSprite();
         if (CanMove(direction))
         {
             Move(direction);
             return;
         }
-        
-        // how am I dealing with the reflector/player/wizard?
     }
 
     private void Destroy()
@@ -55,5 +80,17 @@ public partial class Moveable_Orb : Moveable
         LevelSingleton.Instance.StartTurn -= OnTurnStart;
         // what??
         QueueFree();
+    }
+
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+        LevelSingleton.Instance.StartTurn -= OnTurnStart;
+    }
+
+    private void AssignRandomSprite()
+    {
+        var rng = new Random();
+        Sprite2D.Texture = OrbTextures[rng.Next(OrbTextures.Length - 1)];
     }
 }
