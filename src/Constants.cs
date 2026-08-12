@@ -20,7 +20,8 @@ public enum EBlockType
     Marvel,
     Milk,
     
-    Orb
+    Orb,
+    Bouncer,
 }
 
 public static class Constants

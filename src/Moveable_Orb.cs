@@ -23,6 +23,22 @@ public partial class Moveable_Orb : Moveable
         if (LevelSingleton.Instance.IsTileWizard(tilePos))
         {
             WizardManager.Instance.TakeDamage();
+            Destroy();
+        }
+
+        if (LevelSingleton.Instance.IsTileBlockType(tilePos + direction, EBlockType.Bouncer))
+        {
+            GD.Print($"Orb at {tilePos} hit bouncer, inverting direction.");
+            direction *= -1;
+        }
+        if (LevelSingleton.Instance.IsTileBlockType(tilePos + direction, EBlockType.Orb))
+        {
+            GD.Print($"Orb at {tilePos} hit orb.");
+            if (LevelSingleton.Instance.GetMoveableAtPosition(tilePos + direction) is Moveable_Orb orb)
+            {
+                orb.Destroy();
+            }
+            Destroy();
         }
         
         if (CanMove(direction))
@@ -32,5 +48,12 @@ public partial class Moveable_Orb : Moveable
         }
         
         // how am I dealing with the reflector/player/wizard?
+    }
+
+    private void Destroy()
+    {
+        LevelSingleton.Instance.StartTurn -= OnTurnStart;
+        // what??
+        QueueFree();
     }
 }

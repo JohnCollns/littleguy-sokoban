@@ -7,6 +7,7 @@ public partial class WizardManager : Node
     [Export] private Vector2I OrbSpawnPeriodRange = new Vector2I(4, 8);
     [Export] private int MaxHealth = 10;
     private int CurrentHealth;
+    public bool IsAlive => CurrentHealth > 0;
     [Export] private Vector2[] OrbSpawningCoords;
     private Vector2I[] OrbSpawningCoords_Internal;
     private int TurnsUntilNextOrbSpawn = 2;
@@ -18,7 +19,7 @@ public partial class WizardManager : Node
     {
         CurrentHealth = MaxHealth;
         OrbSpawningCoords_Internal = new Vector2I[OrbSpawningCoords.Length];
-        for (int i =0; i < OrbSpawningCoords.Length; i++)
+        for (int i=0; i < OrbSpawningCoords.Length; i++)
         {
             OrbSpawningCoords_Internal[i] = MathsHelper.Vector2IFromVector2(OrbSpawningCoords[i]);
         }
@@ -29,6 +30,9 @@ public partial class WizardManager : Node
     {
         // This does not respect undos. 
         // Could add a signal to LevelSingleton.UndoLastTurn()
+
+        if (!IsAlive)
+            return;
         
         TurnsUntilNextOrbSpawn--;
         if (TurnsUntilNextOrbSpawn == 0)
@@ -54,6 +58,7 @@ public partial class WizardManager : Node
         GetTree().CurrentScene.AddChild(orb);
         orb.Position = Constants.TileCoordToSpace(pos);
         orb.tilePos = pos;
+        orb.ApplyTilePos();
         return orb;
     }
 

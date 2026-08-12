@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cirxdo53b0vfq" path="res://content/scenes/wizard.tscn" id="11_t7gld"]
 [ext_resource type="PackedScene" uid="uid://d38hmhn3dkbvo" path="res://content/scenes/happy1.tscn" id="12_8b36x"]
 [ext_resource type="Texture2D" uid="uid://yaims4e886sp" path="res://content/tiles/grass.png" id="18_dcueh"]
+[ext_resource type="PackedScene" uid="uid://5hfvqoqghq6h" path="res://content/scenes/bouncer.tscn" id="20_dpyau"]
 [ext_resource type="Texture2D" uid="uid://b2gq68kxironk" path="res://content/tiles/grass_evil.png" id="21_abqbn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d4pds"]
@@ -129,6 +130,7 @@ scenes/5/scene = ExtResource("8_8b36x")
 scenes/6/scene = ExtResource("9_osep4")
 scenes/7/scene = ExtResource("10_p7wsi")
 scenes/8/scene = ExtResource("11_t7gld")
+scenes/9/scene = ExtResource("20_dpyau")
 scenes/10/scene = ExtResource("5_hwkm3")
 scenes/11/scene = ExtResource("6_dcueh")
 scenes/12/scene = ExtResource("7_ah530")

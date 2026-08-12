@@ -79,6 +79,15 @@ public partial class LevelSingleton : Node
         return GetTileMapTerrainIDAtPos(pos) == Constants.WizardTerrainID;
     }
 
+    public bool IsTileBlockType(Vector2I pos, EBlockType type)
+    {
+        if (GetMoveableAtPosition(pos) is Moveable moveable)
+        {
+            return moveable.BlockType == type;
+        }
+        return false;
+    }
+
     public Moveable GetMoveableAtPosition(Vector2I pos)
     {
         // Is there a more computationally efficient way of doing this? 
