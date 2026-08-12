@@ -2,7 +2,6 @@
 
 [ext_resource type="TileSet" uid="uid://65uennwf8xfy" path="res://content/tiles/tileset_256.tres" id="1_4irl0"]
 [ext_resource type="Script" uid="uid://dvmoji5ag3m8j" path="res://src/LevelInfo.cs" id="2_j52d4"]
-[ext_resource type="Script" uid="uid://bvyqe8210ja7b" path="res://src/TileChatManager.cs" id="3_s4q2c"]
 
 [node name="Node2D" type="Node2D" unique_id=1751878291]
 
@@ -17,7 +16,3 @@ zoom = Vector2(0.2, 0.2)
 script = ExtResource("2_j52d4")
 LevelName = "level1"
 NextLevel = "res://content/scenes/level2.tscn"
-
-[node name="TileChatManager" type="Node" parent="." unique_id=1340040873 node_paths=PackedStringArray("_targetMap")]
-script = ExtResource("3_s4q2c")
-_targetMap = NodePath("../TileMapLayer")

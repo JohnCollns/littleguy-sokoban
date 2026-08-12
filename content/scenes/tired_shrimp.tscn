@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbptox5hfdvbs" path="res://src/Moveable_Multiblock.cs" id="1_3yrjy"]
 [ext_resource type="Texture2D" uid="uid://1llk5uqeshp0" path="res://content/sprites/tiredshrimp.png" id="2_dtsl0"]
+[ext_resource type="Script" uid="uid://bcaqxlmn0siyt" path="res://src/SpeechBubble.cs" id="3_c28wm"]
 
 [node name="TiredShrimp" type="Node2D" unique_id=223444175]
 script = ExtResource("1_3yrjy")
@@ -11,3 +12,7 @@ BlockType = 3
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=851065305]
 position = Vector2(128, 128)
 texture = ExtResource("2_dtsl0")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=339460187]
+script = ExtResource("3_c28wm")
+_chatLines = PackedStringArray("*grumble grumble*", "Who turned out the lights...?", "*Yaaaaaaawn*", "*Yaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaawn*", "Just gotta get through this week", "I shouldn\'t have had that coffee")

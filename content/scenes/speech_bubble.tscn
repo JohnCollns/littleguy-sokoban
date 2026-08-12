@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bhasebphbf8kr"]
+
+[ext_resource type="Script" uid="uid://bcaqxlmn0siyt" path="res://src/SpeechBubble.cs" id="1_ohpoo"]
+
+[node name="Node2D" type="Node2D" unique_id=375949279]
+
+[node name="Node" type="Node" parent="." unique_id=691026689]
+script = ExtResource("1_ohpoo")

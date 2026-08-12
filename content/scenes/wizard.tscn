@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbptox5hfdvbs" path="res://src/Moveable_Multiblock.cs" id="1_s50hq"]
 [ext_resource type="Texture2D" uid="uid://xxhkfpjpjqrj" path="res://content/sprites/wiz.png" id="2_qohth"]
+[ext_resource type="Script" uid="uid://bcaqxlmn0siyt" path="res://src/SpeechBubble.cs" id="3_gvvcu"]
 
 [node name="Wizard" type="Node2D" unique_id=223444175]
 script = ExtResource("1_s50hq")
@@ -10,3 +11,8 @@ BlockType = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=851065305]
 texture = ExtResource("2_qohth")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=334873640]
+script = ExtResource("3_gvvcu")
+_chatLines = PackedStringArray("A wizard is never late, nor is he early", "Where did place my pondering orb... ", "evilwizard55 must be stoped!!", "I cast... testicular torsion!", "I cast... perplexing puzzle!", "I cast...forgive yourself...", "I sense a dire omen...")
+_bubbleOffset = Vector2(0, -421)

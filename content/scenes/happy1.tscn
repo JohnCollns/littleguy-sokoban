@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://boa87tb3vcxq3" path="res://src/Moveable.cs" id="1_xv1yo"]
 [ext_resource type="Texture2D" uid="uid://kdou5s0jpy7c" path="res://content/sprites/happy1.png" id="2_7aecc"]
+[ext_resource type="Script" uid="uid://bcaqxlmn0siyt" path="res://src/SpeechBubble.cs" id="3_t8nuh"]
 
 [node name="MoveableTemplate" type="Node2D" unique_id=223444175]
 script = ExtResource("1_xv1yo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=851065305]
 texture = ExtResource("2_7aecc")
+
+[node name="SpeechBubble" type="Node2D" parent="." unique_id=94322393]
+script = ExtResource("3_t8nuh")

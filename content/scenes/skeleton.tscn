@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbptox5hfdvbs" path="res://src/Moveable_Multiblock.cs" id="1_sgcxl"]
 [ext_resource type="Texture2D" uid="uid://bokoju5d8nv4j" path="res://content/sprites/skel_eyes.png" id="2_3lost"]
+[ext_resource type="Script" uid="uid://bcaqxlmn0siyt" path="res://src/SpeechBubble.cs" id="3_3lost"]
 
 [node name="Skeleton" type="Node2D" unique_id=82777774]
 script = ExtResource("1_sgcxl")
@@ -10,3 +11,7 @@ BlockType = 6
 
 [node name="SkelEyes" type="Sprite2D" parent="." unique_id=238218376]
 texture = ExtResource("2_3lost")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1878256722]
+script = ExtResource("3_3lost")
+_chatLines = PackedStringArray("💀💀💀", "Oi, got a lighter?", "I got a ... BONE to pick... hahahaha", "Have you seen my body?", "My father left when i was a wee lad...", "hahaha fuck yeah", "sans undertale")
