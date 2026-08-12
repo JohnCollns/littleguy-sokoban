@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c1nlc0t77ik38"]
 
 [ext_resource type="Script" uid="uid://c3tnjvuvgeyna" path="res://src/Player.cs" id="1_jaad6"]
-[ext_resource type="Texture2D" uid="uid://crlsivioyip0c" path="res://content/temp_sprites/tempman256.png" id="2_jaad6"]
+[ext_resource type="Texture2D" uid="uid://d0r4gammfp0gy" path="res://content/sprites/gnomeplayer.png" id="2_jaad6"]
 
 [node name="Player" type="Node2D" unique_id=2015964702]
 script = ExtResource("1_jaad6")
