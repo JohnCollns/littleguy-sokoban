@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cqtm00f1cbeyn"]
+
+[ext_resource type="AudioStream" uid="uid://f2xoei66p47" path="res://content/sound/Happy wizard game 2 beat.mp3" id="1_gm1mc"]
+
+[node name="Musicscene" type="Node2D" unique_id=1913871600]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1182041251]
+stream = ExtResource("1_gm1mc")
+autoplay = true

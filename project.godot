@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="LittleGuySokoban"
-run/main_scene="uid://b4kituakaifs6"
+run/main_scene="uid://qctj34cb1qca"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 LevelSingleton="*uid://duo2d3rml7new"
+Musicscene="*uid://cqtm00f1cbeyn"
 
 [display]
 

@@ -49,7 +49,8 @@ public partial class LevelSingleton : Node
     {
         MoveHistory.Clear();
         FriendHealth = 3;
-        BossHealthBar.Instance.SetFriendHealthBar(FriendHealth);
+        if (BossHealthBar.Instance != null)
+            BossHealthBar.Instance.SetFriendHealthBar(FriendHealth);
         TileMapLayer = (TileMapLayer)GetTree().GetFirstNodeInGroup("LevelTileMap");
         GD.Print($"OnLevelChanged(), TileMapLayer found: {TileMapLayer != null}");
     }
