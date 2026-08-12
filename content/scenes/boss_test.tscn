@@ -28,6 +28,7 @@ NextLevel = "res://content/scenes/base_scene.tscn"
 position = Vector2(0, -1280)
 script = ExtResource("3_wmyqe")
 OrbScene = ExtResource("4_ikdq0")
+MaxHealth = 8
 OrbSpawningCoords = PackedVector2Array(-2, -5, -1, -5, 0, -5, 1, -5, 2, -5)
 
 [node name="WizardSprite2D" type="Sprite2D" parent="WizardRoot" unique_id=2298238]

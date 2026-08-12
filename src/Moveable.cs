@@ -72,7 +72,7 @@ public partial class Moveable : Node2D
     {
         if (LevelSingleton.Instance.GetMoveableAtPosition(tilePos + direction) is Moveable moveableToPush)
         {
-            if (moveableToPush.BlockType == EBlockType.Orb)
+            if (moveableToPush.BlockType == EBlockType.Orb && BlockType != EBlockType.Bouncer)
             {
                 GD.Print($"Block of type: {BlockType} moved into orb, destroying self");
                 moveableToPush.Destroy();
