@@ -16,3 +16,4 @@ zoom = Vector2(0.2, 0.2)
 [node name="Node" type="Node" parent="." unique_id=1534065020]
 script = ExtResource("2_srxmk")
 LevelName = "level6"
+NextLevel = "res://content/scenes/boss_transition.tscn"

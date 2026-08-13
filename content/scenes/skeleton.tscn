@@ -14,4 +14,4 @@ texture = ExtResource("2_3lost")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1878256722]
 script = ExtResource("3_3lost")
-_chatLines = PackedStringArray("💀💀💀", "Oi, got a lighter?", "I got a ... BONE to pick... hahahaha", "Have you seen my body?", "My father left when i was a wee lad...", "hahaha fuck yeah", "sans undertale")
+_chatLines = PackedStringArray("💀💀💀", "Oi, got a lighter?", "I got a ... BONE to pick... hahahaha", "Have you seen my body?", "My father left when i was a wee lad...", "hahaha fuck yeah", "sans undertale", "Yeah... thats what I woulda did")
