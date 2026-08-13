@@ -24,12 +24,13 @@ script = ExtResource("2_7dwx2")
 LevelName = "test demo final v3"
 NextLevel = "res://content/scenes/base_scene.tscn"
 
-[node name="WizardRoot" type="Node2D" parent="." unique_id=1328457709]
+[node name="WizardRoot" type="Node2D" parent="." unique_id=1328457709 node_paths=PackedStringArray("BossSprites")]
 position = Vector2(0, -1280)
 script = ExtResource("3_wmyqe")
 OrbScene = ExtResource("4_ikdq0")
 MaxHealth = 8
 OrbSpawningCoords = PackedVector2Array(-2, -5, -1, -5, 0, -5, 1, -5, 2, -5)
+BossSprites = [NodePath("WizardSprite2D"), NodePath("WizardHandLeftSprite2D"), NodePath("WizardHandRightSprite2D")]
 
 [node name="WizardSprite2D" type="Sprite2D" parent="WizardRoot" unique_id=2298238]
 position = Vector2(0, -512)
