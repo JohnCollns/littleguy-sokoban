@@ -10,28 +10,34 @@ public partial class Player : Moveable
         { "S", new Vector2I(0, 1) },
         { "D", new Vector2I(1, 0) },
         { "A", new Vector2I(-1, 0) },
+        { "Up", new Vector2I(0, -1) },
+        { "Down", new Vector2I(0, 1) },
+        { "Right", new Vector2I(1, 0) },
+        { "Left", new Vector2I(-1, 0) },
     };
-    
+
     public override void _Input(InputEvent @event)
     {
         if (@event.IsPressed())
         {
-            // GD.Print($"Received InputEvent: {@event.AsText()}");
-            if (InputDirections.ContainsKey(@event.AsText()))
-            {
-                HandleMovementInput(@event);
-                return;
-            }
-            
             // Undo
             if (@event.IsActionPressed("Undo"))
             {
                 LevelSingleton.Instance.UndoPreviousTurn();
             }
-
+            
+            // Skip to boss
             if (@event.AsText() == "F10")
             {
                 GetTree().ChangeSceneToFile(Constants.BossLevelString);
+            }
+
+            // Move
+            // GD.Print($"Received InputEvent: {@event.AsText()}");
+            if (InputDirections.ContainsKey(@event.AsText()))
+            {
+                HandleMovementInput(@event);
+                return;
             }
         }
     }
