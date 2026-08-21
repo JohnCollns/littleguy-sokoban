@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfyxhihv7fq21"]
 
 [ext_resource type="Texture2D" uid="uid://dw10a26ohyc0a" path="res://content/sprites/omae.png" id="1_sr1ou"]
+[ext_resource type="PackedScene" uid="uid://dcfyhqmvjqpwi" path="res://content/scenes/boss_test.tscn" id="3_cqjaa"]
 [ext_resource type="Script" uid="uid://dbbdixjfsca7d" path="res://src/AnimAutoPlayer.cs" id="3_xmjmg"]
 
 [sub_resource type="Animation" id="Animation_ih468"]
@@ -159,7 +160,7 @@ libraries/ = SubResource("AnimationLibrary_ih468")
 script = ExtResource("3_xmjmg")
 AnimationPlayer = NodePath("..")
 AnimToPlay = &"panup"
-SceneToPlay = "res://content/scenes/boss_test.tscn"
+SceneToPlay = ExtResource("3_cqjaa")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1431942342]
 zoom = Vector2(1.5, 1.5)

@@ -12,6 +12,7 @@ public partial class WizardManager : Node
 	private Vector2I[] OrbSpawningCoords_Internal;
 	private int TurnsUntilNextOrbSpawn = 2;
 	[Export] public Sprite2D[] BossSprites;
+	[Export] public PackedScene SceneToPlay;
 
 	public static WizardManager Instance;
 	
@@ -86,6 +87,10 @@ public partial class WizardManager : Node
 	private void Death()
 	{
 		// TODO
+		if (SceneToPlay != null)
+		{
+			GetTree().ChangeSceneToPacked(SceneToPlay);
+		}
 	}
 
 	public void FlashRed()

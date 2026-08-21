@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://de5676bdhs3bb" path="res://src/WizardManager.cs" id="3_wmyqe"]
 [ext_resource type="PackedScene" uid="uid://bblepyi4twos6" path="res://content/scenes/orb.tscn" id="4_ikdq0"]
 [ext_resource type="Texture2D" uid="uid://bya6n87ky84hf" path="res://content/sprites/wizardleft.png" id="4_wmyqe"]
+[ext_resource type="PackedScene" uid="uid://ft4i06v3vhpf" path="res://content/scenes/win_screen.tscn" id="5_ijtn1"]
 [ext_resource type="Texture2D" uid="uid://l8v428qb07ty" path="res://content/sprites/wizardright.png" id="5_ikdq0"]
 [ext_resource type="Texture2D" uid="uid://kdou5s0jpy7c" path="res://content/sprites/happy1.png" id="8_8id21"]
 [ext_resource type="Script" uid="uid://4x3hcex1btm3" path="res://src/BossHealthBar.cs" id="8_ix7mu"]
@@ -26,8 +27,7 @@ zoom = Vector2(0.2, 0.2)
 
 [node name="LevelInfo" type="Node" parent="." unique_id=1560310485]
 script = ExtResource("2_7dwx2")
-LevelName = "test demo final v3"
-NextLevel = "res://content/scenes/base_scene.tscn"
+LevelName = "boss"
 
 [node name="WizardRoot" type="Node2D" parent="." unique_id=1328457709 node_paths=PackedStringArray("BossSprites")]
 position = Vector2(0, -1280)
@@ -36,6 +36,7 @@ OrbScene = ExtResource("4_ikdq0")
 MaxHealth = 8
 OrbSpawningCoords = PackedVector2Array(-2, -5, -1, -5, 0, -5, 1, -5, 2, -5)
 BossSprites = [NodePath("WizardSprite2D"), NodePath("WizardHandLeftSprite2D"), NodePath("WizardHandRightSprite2D")]
+SceneToPlay = ExtResource("5_ijtn1")
 
 [node name="WizardSprite2D" type="Sprite2D" parent="WizardRoot" unique_id=2298238]
 position = Vector2(0, -512)
