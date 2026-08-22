@@ -97,4 +97,5 @@ public static class Constants
     }
 
     public static readonly string BossLevelString = "res://content/scenes/boss_test.tscn";
+    public static readonly string PreBossLevelString = "res://content/scenes/boss_transition.tscn";
 }

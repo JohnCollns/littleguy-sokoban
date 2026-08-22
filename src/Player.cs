@@ -33,6 +33,14 @@ public partial class Player : Moveable
             {
                 GetTree().ChangeSceneToFile(Constants.BossLevelString);
             }
+            if (@event.AsText() == "F9")
+            {
+                GetTree().ChangeSceneToFile(Constants.PreBossLevelString);
+            }
+            if (@event.AsText() == "F5")
+            {
+                GetTree().ReloadCurrentScene();
+            }
         }
     }
     
