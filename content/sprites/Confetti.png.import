@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3gd7wqigk8sr"
-path="res://.godot/imported/hedge1.png-c421ab3682f67894c1073dabd4169962.ctex"
+uid="uid://dwltqb6y138rc"
+path="res://.godot/imported/Confetti.png-4b026b1baed7793702202ce2d1535546.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/tiles/hedge1.png"
-dest_files=["res://.godot/imported/hedge1.png-c421ab3682f67894c1073dabd4169962.ctex"]
+source_file="res://content/sprites/Confetti.png"
+dest_files=["res://.godot/imported/Confetti.png-4b026b1baed7793702202ce2d1535546.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3gd7wqigk8sr"
-path="res://.godot/imported/hedge1.png-c421ab3682f67894c1073dabd4169962.ctex"
+uid="uid://dp3lhn8c2s54o"
+path="res://.godot/imported/fort.png-4ae66778d5f2136d6ece15bfef817044.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/tiles/hedge1.png"
-dest_files=["res://.godot/imported/hedge1.png-c421ab3682f67894c1073dabd4169962.ctex"]
+source_file="res://content/sprites/fort.png"
+dest_files=["res://.godot/imported/fort.png-4ae66778d5f2136d6ece15bfef817044.ctex"]
 
 [params]
 

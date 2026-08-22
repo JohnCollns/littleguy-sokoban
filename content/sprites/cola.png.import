@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3gd7wqigk8sr"
-path="res://.godot/imported/hedge1.png-c421ab3682f67894c1073dabd4169962.ctex"
+uid="uid://5w6igols4yhv"
+path="res://.godot/imported/cola.png-d5fba0a63e7b7313266ee56b9a1bbb81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://content/tiles/hedge1.png"
-dest_files=["res://.godot/imported/hedge1.png-c421ab3682f67894c1073dabd4169962.ctex"]
+source_file="res://content/sprites/cola.png"
+dest_files=["res://.godot/imported/cola.png-d5fba0a63e7b7313266ee56b9a1bbb81.ctex"]
 
 [params]
 

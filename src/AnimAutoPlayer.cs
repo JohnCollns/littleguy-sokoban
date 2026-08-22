@@ -3,19 +3,30 @@ using System;
 
 public partial class AnimAutoPlayer : Node
 {
-    [Export] public Godot.AnimationPlayer AnimationPlayer;
-    [Export] public StringName AnimToPlay;
-    [Export] public string SceneToPlay;
+	[Export] public Godot.AnimationPlayer AnimationPlayer;
+	[Export] public StringName AnimToPlay;
+	[Export] public PackedScene SceneToPlay;
+	[Export] public bool IsRandomStart;
 
-    public override void _Ready()
-    {
-        base._Ready();
-        AnimationPlayer.Play(AnimToPlay);
-        AnimationPlayer.AnimationFinished += OnAnimationComplete;
-    }
+	public override async void _Ready()
+	{
+		base._Ready();
 
-    private void OnAnimationComplete(StringName animName)
-    {
-        GetTree().ChangeSceneToFile(SceneToPlay);
-    }
+		if (IsRandomStart)
+		{
+			float randomDelay = (float)GD.RandRange(0.0, 3);
+			await ToSignal(GetTree().CreateTimer(randomDelay), SceneTreeTimer.SignalName.Timeout);
+		}
+
+		AnimationPlayer.Play(AnimToPlay);
+		AnimationPlayer.AnimationFinished += OnAnimationComplete;
+	}
+
+	private void OnAnimationComplete(StringName animName = null)
+	{
+		if (animName != null)
+		{
+			GetTree().ChangeSceneToPacked(SceneToPlay);
+		}
+	}
 }
